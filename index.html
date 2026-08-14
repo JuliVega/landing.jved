@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JV Estudio Digital · Julieta Vega · Marketing Digital</title>
+<meta name="description" content="Contenido en redes y presencia digital para negocios que ya tienen algo muy bueno para mostrar, pero necesitan que todo el mundo los vea.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;500;600;700&family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico?v=2" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png?v=2">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png?v=2">
+<link rel="apple-touch-icon" sizes="180x180" href="favicon-180.png?v=2">
+<style>
+/* ============================================================
+   SISTEMA VISUAL · JV Estudio Digital
+   Paleta tomada tal cual del branding: fondo #FFF0F5, secundario
+   #F5A0C0, terciario #D4006A (rosa protagonista, botones y CTAs),
+   acento #1A1A1A (negro, el "blanco y negro" que sostiene el
+   fucsia y da la sensación de marca segura, no dulce/pastel),
+   texto principal #4A0020 (guinda oscuro, con más carácter que
+   un gris estándar).
+   Tipografías: Bebas Neue para títulos (trazo alto, de afiche,
+   directo), Montserrat para cuerpo (neutra, legible, profesional),
+   Raleway para etiquetas/acentos (más fina, para separarla del
+   cuerpo en badges y etiquetas pequeñas).
+   ============================================================ */
+
+:root{
+  --bg:#FFF0F5;
+  --secondary:#F5A0C0;
+  --tertiary:#D4006A;
+  --accent:#1A1A1A;
+  --text:#4A0020;
+  --text-light:#FFF9FB;
+  --font-title:'Bebas Neue', sans-serif;
+  --font-body:'Montserrat', sans-serif;
+  --font-label:'Raleway', sans-serif;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+
+html{scroll-behavior:smooth;}
+
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--font-body);
+  line-height:1.55;
+  overflow-x:hidden;
+}
+
+img{max-width:100%;display:block;}
+
+a{color:inherit;text-decoration:none;}
+
+h1,h2,h3{font-family:var(--font-title);letter-spacing:0.02em;line-height:1.05;}
+
+.eyebrow{
+  font-family:var(--font-label);
+  font-weight:600;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  font-size:0.72rem;
+}
+
+.container{
+  width:100%;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 6vw;
+}
+
+/* Botones: siempre pill, sombra con el color de acento (negro) */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  gap:0.5rem;
+  font-family:var(--font-label);
+  font-weight:700;
+  font-size:0.95rem;
+  letter-spacing:0.03em;
+  padding:0.95rem 1.9rem;
+  border-radius:100px;
+  border:none;
+  cursor:pointer;
+  transition:transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease, background 0.3s ease;
+}
+.btn-primary{
+  background:var(--tertiary);
+  color:var(--text-light);
+  box-shadow:0 10px 24px -8px rgba(26,26,26,0.55), 0 2px 6px rgba(26,26,26,0.35);
+}
+.btn-primary:hover{
+  transform:translateY(-3px);
+  background:#b8005b;
+  box-shadow:0 16px 30px -8px rgba(26,26,26,0.6), 0 4px 10px rgba(26,26,26,0.4);
+}
+.btn-ghost{
+  background:transparent;
+  color:var(--text-light);
+  border:1.5px solid rgba(255,249,251,0.55);
+}
+.btn-ghost:hover{
+  background:rgba(255,249,251,0.12);
+  transform:translateY(-3px);
+}
+
+/* ============ HEADER ============ */
+header{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:100;
+  padding:1.1rem 0;
+  transition:background 0.4s ease, backdrop-filter 0.4s ease, border-color 0.4s ease, padding 0.4s ease;
+}
+header .container{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+header.scrolled{
+  background:rgba(255,240,245,0.88);
+  backdrop-filter:blur(16px) saturate(1.6);
+  -webkit-backdrop-filter:blur(16px) saturate(1.6);
+  border-bottom:1px solid rgba(74,0,32,0.08);
+  padding:0.7rem 0;
+}
+.logo-link{display:flex;align-items:center;gap:0.6rem;}
+.logo-link img{height:36px;width:auto;}
+.logo-wordmark{font-family:var(--font-title);font-size:1.3rem;letter-spacing:0.03em;color:var(--text);}
+
+nav.desktop-nav{display:flex;gap:2rem;font-family:var(--font-label);font-weight:600;font-size:0.9rem;}
+nav.desktop-nav a{position:relative;padding-bottom:4px;}
+nav.desktop-nav a::after{
+  content:'';position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:var(--tertiary);transition:width 0.3s ease;
+}
+nav.desktop-nav a:hover::after{width:100%;}
+
+.nav-cta{display:none;}
+@media(min-width:960px){.nav-cta{display:inline-flex;}}
+
+.menu-btn{
+  display:flex;
+  background:none;border:none;cursor:pointer;
+  width:42px;height:42px;
+  align-items:center;justify-content:center;
+}
+@media(min-width:960px){.menu-btn{display:none;}nav.desktop-nav{display:flex;}}
+@media(max-width:959px){nav.desktop-nav{display:none;}}
+
+.menu-btn span{display:block;width:22px;height:2px;background:var(--text);position:relative;}
+.menu-btn span::before,.menu-btn span::after{
+  content:'';position:absolute;left:0;width:22px;height:2px;background:var(--text);transition:transform 0.3s ease;
+}
+.menu-btn span::before{top:-7px;}
+.menu-btn span::after{top:7px;}
+
+.mobile-menu{
+  position:fixed;top:0;right:0;height:100vh;width:78vw;max-width:320px;
+  background:rgba(255,240,245,0.97);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  transform:translateX(100%);
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1);
+  z-index:99;
+  display:flex;flex-direction:column;
+  padding:6.5rem 2.2rem 2rem;
+  gap:1.6rem;
+  font-family:var(--font-label);font-weight:600;font-size:1.15rem;
+  box-shadow:-10px 0 40px rgba(74,0,32,0.15);
+}
+.mobile-menu.open{transform:translateX(0);}
+.mobile-menu a{padding:0.3rem 0;border-bottom:1px solid rgba(74,0,32,0.08);}
+
+/* ============ HERO ============ */
+.hero{
+  position:relative;
+  padding:9.5rem 0 5rem;
+  display:flex;
+  align-items:center;
+  min-height:92vh;
+}
+.hero .container{
+  display:grid;
+  grid-template-columns:1.05fr 0.95fr;
+  gap:3rem;
+  align-items:center;
+}
+.hero-copy .eyebrow{color:var(--tertiary);margin-bottom:1rem;display:block;}
+.hero-copy h1{
+  font-size:clamp(2.3rem, 4.6vw, 3.5rem);
+  color:var(--text);
+  margin-bottom:1.3rem;
+}
+.hero-copy h1 span{color:var(--tertiary);}
+.hero-copy p{
+  font-size:1.05rem;
+  max-width:34ch;
+  margin-bottom:2.1rem;
+  color:var(--text);
+  opacity:0.88;
+}
+.hero-actions{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;}
+.hero-stat{
+  font-family:var(--font-label);
+}
+.hero-stat strong{
+  display:block;font-family:var(--font-title);font-size:1.8rem;color:var(--accent);line-height:1;
+}
+.hero-stat span{font-size:0.75rem;letter-spacing:0.05em;opacity:0.75;}
+
+.hero-visual{position:relative;display:flex;justify-content:center;}
+.blob-wrap{position:relative;width:min(100%, 420px);}
+.blob-clip{
+  width:100%;
+  aspect-ratio:1/1.05;
+  clip-path:url(#blobShape);
+  overflow:hidden;
+  background:var(--secondary);
+}
+.blob-clip img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+.blob-wrap:hover .blob-clip img{transform:scale(1.045);}
+
+.hero-badge{
+  position:absolute;
+  bottom:-6%;
+  right:2%;
+  width:118px;height:118px;
+}
+.hero-badge svg{width:100%;height:100%;}
+.hero-badge .badge-circle{
+  animation:spin-rev 12s linear infinite;
+  transform-origin:60px 60px;
+}
+.hero-badge .badge-text{
+  animation:spin 14s linear infinite;
+  transform-origin:60px 60px;
+}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+@keyframes spin-rev{from{transform:rotate(0deg);}to{transform:rotate(-360deg);}}
+
+@media(max-width:960px){
+  .hero{padding:8.5rem 0 3.5rem;min-height:auto;}
+  .hero .container{grid-template-columns:1fr;gap:2.6rem;}
+  .hero-copy{order:1;text-align:left;}
+  .hero-visual{order:2;}
+  .hero-copy p{max-width:100%;}
+  .blob-wrap{max-width:280px;margin:0 auto;}
+  .hero-badge{width:92px;height:92px;bottom:-4%;right:0;}
+}
+
+/* ============ MARQUEE ============ */
+.marquee{
+  background:var(--accent);
+  overflow:hidden;
+  padding:0.9rem 0;
+  white-space:nowrap;
+}
+.marquee-track{
+  display:inline-flex;
+  animation:marquee 20s linear infinite;
+}
+.marquee-track span{
+  font-family:var(--font-label);
+  font-weight:600;
+  letter-spacing:0.12em;
+  text-transform:uppercase;
+  font-size:0.85rem;
+  color:var(--text-light);
+  padding:0 2rem;
+  opacity:0.9;
+}
+.marquee-track span::after{content:'✦';margin-left:2rem;color:var(--tertiary);}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* ============ SERVICIOS ============ */
+.servicios{padding:6.5rem 0;}
+.section-head{max-width:46ch;margin-bottom:3rem;}
+.section-head .eyebrow{color:var(--tertiary);margin-bottom:0.7rem;display:block;}
+.section-head h2{font-size:clamp(1.9rem,3.4vw,2.6rem);color:var(--text);}
+
+.servicios-grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  gap:1.6rem;
+}
+.servicio-card{
+  border-radius:24px;
+  padding:2.3rem;
+  position:relative;
+  overflow:hidden;
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+}
+.servicio-card::before{
+  content:'';
+  position:absolute;top:0;left:0;right:0;height:5px;
+  background:var(--accent);
+  transform:scaleX(0);
+  transform-origin:left;
+  transition:transform 0.45s ease;
+}
+.servicio-card:hover::before{transform:scaleX(1);}
+.servicio-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 8px 16px -6px rgba(74,0,32,0.18), 0 20px 34px -12px rgba(74,0,32,0.22), 0 2px 6px rgba(74,0,32,0.14);
+}
+.servicio-dark{background:var(--accent);color:var(--text-light);}
+.servicio-dark h3{color:var(--text-light);}
+.servicio-dark .servicio-tag{color:var(--secondary);}
+.servicio-light{background:#fff;color:var(--text);}
+.servicio-tag{
+  font-family:var(--font-label);font-weight:600;font-size:0.72rem;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--tertiary);display:block;margin-bottom:0.9rem;
+}
+.servicio-card h3{font-size:1.5rem;margin-bottom:0.8rem;}
+.servicio-card p{font-size:0.95rem;opacity:0.85;margin-bottom:1.6rem;}
+.servicio-card .btn{font-size:0.82rem;padding:0.7rem 1.4rem;}
+.servicio-dark .btn{background:var(--tertiary);color:var(--text-light);}
+.servicio-light .btn{background:var(--accent);color:var(--text-light);}
+
+@media(max-width:900px){
+  .servicios-grid{grid-template-columns:1fr;}
+}
+
+/* ============ BENEFICIOS ============ */
+.beneficios{padding:1rem 0 6rem;background:var(--bg);}
+.beneficios-columns{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:2.6rem 2rem;
+}
+.beneficio-col h3{
+  font-family:var(--font-title);
+  font-size:1.25rem;
+  color:var(--tertiary);
+  margin-bottom:1.1rem;
+  letter-spacing:0.01em;
+}
+.beneficio-col ul{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:0.95rem;
+}
+.beneficio-col li{
+  display:flex;
+  gap:0.7rem;
+  align-items:flex-start;
+  font-size:0.92rem;
+  color:var(--text);
+  opacity:0.9;
+}
+.beneficio-col li::before{
+  content:'✓';
+  flex-shrink:0;
+  width:22px;height:22px;
+  border-radius:50%;
+  background:var(--tertiary);
+  color:var(--text-light);
+  display:flex;align-items:center;justify-content:center;
+  font-size:0.68rem;font-weight:700;
+  margin-top:0.12rem;
+}
+
+@media(max-width:900px){
+  .beneficios-columns{grid-template-columns:1fr;gap:2.4rem;}
+}
+
+/* ============ SOBRE MI ============ */
+.sobre-mi{
+  background:var(--accent);
+  color:var(--text-light);
+  padding:6.5rem 0;
+}
+.sobre-mi .container{
+  display:grid;
+  grid-template-columns:0.85fr 1.15fr;
+  gap:3.5rem;
+  align-items:start;
+}
+.sobre-mi .eyebrow{color:var(--secondary);margin-bottom:0.7rem;display:block;}
+.sobre-mi h2{font-size:clamp(1.9rem,3.2vw,2.5rem);margin-bottom:0.6rem;}
+.sobre-mi-subtitulo{
+  font-family:var(--font-label);
+  font-weight:600;
+  font-size:1.05rem;
+  color:var(--secondary);
+  margin-bottom:1.4rem;
+}
+.sobre-mi p{font-size:1rem;opacity:0.88;margin-bottom:1.1rem;max-width:52ch;}
+.sobre-mi p:last-of-type{margin-bottom:0;}
+
+.sobre-mi-visual{position:relative;}
+.sobre-mi-photo{
+  border-radius:24px;
+  overflow:hidden;
+  aspect-ratio:4/5;
+  position:relative;
+}
+.sobre-mi-photo img{
+  width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.05);
+  transition:filter 0.75s ease, transform 0.75s ease;
+}
+.sobre-mi-photo::after{
+  content:'';
+  position:absolute;inset:0;
+  background:var(--tertiary);
+  mix-blend-mode:multiply;
+  opacity:0.85;
+  transition:opacity 0.75s ease;
+}
+.sobre-mi-photo:hover img{filter:grayscale(0) contrast(1);transform:scale(1.035);}
+.sobre-mi-photo:hover::after{opacity:0;}
+
+.sobre-mi-badge{
+  position:absolute;
+  top:-18px;right:-18px;
+  width:92px;height:92px;
+  border-radius:50%;
+  background:var(--tertiary);
+  color:var(--text-light);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  box-shadow:0 10px 26px -6px rgba(0,0,0,0.5);
+  font-family:var(--font-title);
+  text-align:center;
+  z-index:2;
+}
+.sobre-mi-badge strong{font-size:1.6rem;line-height:1;}
+.sobre-mi-badge span{font-family:var(--font-label);font-size:0.55rem;letter-spacing:0.05em;text-transform:uppercase;font-weight:600;}
+
+@media(max-width:860px){
+  .sobre-mi .container{grid-template-columns:1fr;}
+  .sobre-mi-visual{max-width:340px;margin:0 auto;}
+}
+
+/* ============ CERTIFICACIONES ============ */
+.certificaciones{padding:4.5rem 0;}
+.certificaciones .section-head{margin-bottom:2.2rem;}
+.logros-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.9rem;
+}
+.logro-badge{
+  display:flex;
+  align-items:center;
+  gap:0.6rem;
+  background:#fff;
+  border:1.5px solid var(--secondary);
+  border-radius:100px;
+  padding:0.7rem 1.3rem;
+  font-family:var(--font-label);
+  font-weight:600;
+  font-size:0.85rem;
+  color:var(--text);
+  transition:transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+}
+.logro-badge:hover{
+  transform:translateY(-4px);
+  border-color:var(--tertiary);
+  background:var(--bg);
+}
+.logro-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--tertiary);flex-shrink:0;}
+
+/* ============ TESTIMONIOS ============ */
+.testimonios{padding:5.5rem 0;background:#fff;}
+.testimonios-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1.6rem;
+}
+.testimonio-card{
+  background:var(--bg);
+  border-radius:24px;
+  padding:2.2rem;
+  transition:transform 0.4s cubic-bezier(0.22,1,0.36,1), box-shadow 0.4s ease;
+}
+.testimonio-card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 8px 16px -6px rgba(74,0,32,0.14), 0 18px 30px -12px rgba(74,0,32,0.18);
+}
+.testimonio-card p{font-size:0.98rem;margin-bottom:1.4rem;color:var(--text);}
+.testimonio-autor{display:flex;align-items:center;gap:0.8rem;}
+.autor-inicial{
+  width:42px;height:42px;border-radius:50%;
+  background:var(--tertiary);color:var(--text-light);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-title);font-size:1.05rem;
+  flex-shrink:0;
+}
+.autor-info strong{display:block;font-family:var(--font-label);font-size:0.92rem;}
+.autor-info span{font-size:0.78rem;opacity:0.7;}
+
+/* ============ CONTACTO ============ */
+.contacto{
+  padding:6.5rem 0 5rem;
+  position:relative;
+}
+.contacto .container{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3.5rem;
+  align-items:center;
+}
+.contacto h2{font-size:clamp(1.9rem,3.4vw,2.7rem);color:var(--text);margin-bottom:1.1rem;}
+.contacto p{font-size:1.02rem;max-width:42ch;margin-bottom:1.9rem;opacity:0.88;}
+.contacto-steps{
+  display:flex;
+  flex-direction:column;
+  gap:1.1rem;
+  margin-bottom:2rem;
+}
+.step-item{
+  display:flex;
+  align-items:flex-start;
+  gap:1rem;
+}
+.step-num{
+  font-family:var(--font-title);
+  font-size:1.4rem;
+  color:var(--tertiary);
+  line-height:1;
+  flex-shrink:0;
+  width:2.2rem;
+}
+.step-item p{
+  font-size:0.94rem;
+  margin-bottom:0;
+  opacity:0.9;
+  max-width:40ch;
+}
+.contacto-note{
+  font-size:0.85rem;
+  opacity:0.75;
+  max-width:42ch;
+  margin-top:1rem;
+  margin-bottom:0;
+}
+
+.contacto-links{display:flex;gap:1rem;flex-wrap:wrap;margin-top:1.6rem;}
+.contacto-social{
+  display:inline-flex;align-items:center;gap:0.5rem;
+  font-family:var(--font-label);font-weight:600;font-size:0.85rem;
+  padding:0.6rem 1.1rem;border-radius:100px;
+  border:1.5px solid var(--text);
+  transition:background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+}
+.contacto-social:hover{background:var(--text);color:var(--text-light);transform:translateY(-3px);}
+
+.contacto-visual{position:relative;}
+.contacto-visual::before{
+  content:'';
+  position:absolute;
+  top:-24px;left:-24px;
+  width:130px;height:130px;
+  border:3px solid var(--tertiary);
+  border-radius:50%;
+  opacity:0.35;
+  z-index:0;
+}
+.contacto-photo{
+  position:relative;
+  border-radius:20px;
+  overflow:hidden;
+  aspect-ratio:4/5;
+  z-index:1;
+}
+.contacto-photo img{
+  width:100%;height:100%;object-fit:cover;
+  transition:transform 0.6s ease;
+}
+.contacto-photo:hover img{transform:scale(1.05);}
+.contacto-photo::after{
+  content:'';
+  position:absolute;inset:0;
+  background:linear-gradient(to top, rgba(26,26,26,0.55), transparent 55%);
+}
+
+@media(max-width:860px){
+  .contacto .container{grid-template-columns:1fr;}
+  .contacto-visual{max-width:320px;margin:0 auto;order:-1;}
+}
+
+/* ============ MENSAJITOS ============ */
+.mensajitos{padding:5.5rem 0 6.5rem;background:var(--secondary);}
+.mensajitos .eyebrow{color:var(--accent);}
+.mensajitos .section-head h2{color:var(--text);}
+.mensajitos-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:1.8rem 1.4rem;
+  padding-top:0.5rem;
+}
+.mensajito{
+  background:#fff;
+  border-radius:14px;
+  padding:1.6rem 1.5rem 1.3rem;
+  box-shadow:0 10px 20px -8px rgba(74,0,32,0.25), 0 2px 6px rgba(74,0,32,0.12);
+  transform:rotate(var(--rot,0deg));
+  transition:transform 0.35s ease, box-shadow 0.35s ease, opacity 0.7s ease;
+  position:relative;
+}
+.mensajito:hover{
+  transform:rotate(0deg) translateY(-4px);
+  box-shadow:0 14px 26px -8px rgba(74,0,32,0.3), 0 4px 10px rgba(74,0,32,0.16);
+}
+html.js-ready .mensajito.reveal{transform:rotate(var(--rot,0deg)) translateY(30px);}
+html.js-ready .mensajito.reveal.in-view{transform:rotate(var(--rot,0deg)) translateY(0);}
+.mensajito p{
+  font-family:var(--font-body);
+  font-size:0.92rem;
+  color:var(--text);
+  margin-bottom:0.9rem;
+}
+.mensajito span{
+  font-family:var(--font-label);
+  font-weight:600;
+  font-size:0.75rem;
+  color:var(--tertiary);
+  letter-spacing:0.02em;
+}
+
+/* ============ FOOTER ============ */
+footer{
+  background:var(--accent);
+  color:var(--text-light);
+  padding:2.6rem 0;
+  text-align:center;
+  font-family:var(--font-label);
+  font-size:0.8rem;
+  opacity:0.75;
+}
+footer img{height:26px;margin:0 auto 0.8rem;}
+
+/* ============ REVEAL ============ */
+html.js-ready .reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.7s ease, transform 0.7s cubic-bezier(0.22,1,0.36,1);
+}
+html.js-ready .reveal.in-view{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* ============ CURSOR PERSONALIZADO ============ */
+.cursor-dot,.cursor-ring{
+  position:fixed;
+  top:0;left:0;
+  border-radius:50%;
+  pointer-events:none;
+  z-index:9999;
+  transform:translate(-50%,-50%);
+}
+.cursor-dot{width:7px;height:7px;background:var(--tertiary);}
+.cursor-ring{
+  width:34px;height:34px;
+  border:1.5px solid var(--accent);
+  transition:width 0.25s ease, height 0.25s ease, border-color 0.25s ease;
+}
+.cursor-ring.hovering{width:62px;height:62px;border-color:var(--tertiary);}
+
+@media(hover:none), (pointer:coarse){
+  .cursor-dot,.cursor-ring{display:none;}
+}
+
+/* ============ ACCESIBILIDAD: reduced motion ============ */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto;}
+  .cursor-dot,.cursor-ring{display:none;}
+  .marquee-track{animation:none;}
+  .hero-badge .badge-circle,.hero-badge .badge-text{animation:none;}
+  .blob-wrap:hover .blob-clip img{transform:none;}
+  .servicio-card:hover,.testimonio-card:hover,.logro-badge:hover,.btn:hover{transform:none;}
+  .sobre-mi-photo:hover img{transform:none;}
+  .contacto-photo:hover img{transform:none;}
+  html.js-ready .reveal{opacity:1;transform:none;transition:none;}
+  html.js-ready .mensajito.reveal,html.js-ready .mensajito.reveal.in-view{transform:rotate(var(--rot,0deg));}
+  .mensajito:hover{transform:rotate(var(--rot,0deg));}
+}
+</style>
+</head>
+<body>
+
+<svg aria-hidden="true" style="position:absolute;width:0;height:0;overflow:hidden;">
+  <defs>
+    <clipPath id="blobShape" clipPathUnits="objectBoundingBox">
+      <path d="M0.50,0.02 C0.66,-0.01 0.84,0.04 0.93,0.19 C1.00,0.31 0.99,0.47 0.95,0.61 C0.91,0.75 0.82,0.87 0.68,0.94 C0.54,1.01 0.36,0.98 0.24,0.88 C0.11,0.78 0.02,0.63 0.02,0.47 C0.02,0.31 0.10,0.16 0.25,0.08 C0.32,0.04 0.41,0.03 0.50,0.02 Z"></path>
+    </clipPath>
+  </defs>
+</svg>
+
+<div class="cursor-dot" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<header id="site-header">
+  <div class="container">
+    <a href="#" class="logo-link">
+      <img src="logo-jved.png" alt="Logo de JV Estudio Digital">
+      <span class="logo-wordmark">JVED</span>
+    </a>
+    <nav class="desktop-nav">
+      <a href="#servicios">Servicios</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#testimonios">Testimonios</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+    <a href="https://wa.me/5493584123836" class="btn btn-primary nav-cta" target="_blank" rel="noopener">Escribime</a>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-label="Abrir menú">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mobile-menu">
+  <a href="#servicios">Servicios</a>
+  <a href="#sobre-mi">Sobre mí</a>
+  <a href="#testimonios">Testimonios</a>
+  <a href="#contacto">Contacto</a>
+  <a href="https://wa.me/5493584123836" target="_blank" rel="noopener" style="border-bottom:none;color:var(--tertiary);">Escribime por WhatsApp →</a>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-copy reveal">
+      <span class="eyebrow">Marketing digital · JV Estudio Digital</span>
+      <h1>Tenés un buen negocio. <span>Solo falta que se note.</span></h1>
+      <p>Contenido en redes y presencia digital para negocios que ya tienen algo muy bueno para mostrar, pero necesitan que todo el mundo los vea.</p>
+      <div class="hero-actions">
+        <a href="https://wa.me/5493584123836" class="btn btn-primary" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+        <div class="hero-stat">
+          <strong>+15</strong>
+          <span>años de trayectoria</span>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal">
+      <div class="blob-wrap">
+        <div class="blob-clip">
+          <img src="hero-julieta.jpg" alt="Julieta Vega, fundadora de JV Estudio Digital">
+        </div>
+        <div class="hero-badge" aria-hidden="true">
+          <svg viewBox="0 0 120 120">
+            <circle class="badge-circle" cx="60" cy="60" r="16" fill="#1A1A1A"></circle>
+            <path id="badge-arc" d="M 60,10 A 50,50 0 1 1 59.9,10" fill="none"></path>
+            <text class="badge-text" font-family="Raleway" font-size="8.4" font-weight="600" fill="#4A0020" letter-spacing="2">
+              <textPath href="#badge-arc">MARKETING DIGITAL • CONTENIDO • ESTRATEGIA • </textPath>
+            </text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track">
+    <span>ESTRATEGIA</span><span>CONTENIDO</span><span>INSTAGRAM</span><span>TIKTOK</span><span>TIENDAS ONLINE</span><span>POSICIONAMIENTO</span>
+    <span>ESTRATEGIA</span><span>CONTENIDO</span><span>INSTAGRAM</span><span>TIKTOK</span><span>TIENDAS ONLINE</span><span>POSICIONAMIENTO</span>
+  </div>
+</div>
+
+<section class="servicios" id="servicios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Servicios</span>
+      <h2>Tres formas de trabajar juntos, según lo que necesite tu negocio.</h2>
+    </div>
+    <div class="servicios-grid">
+      <div class="servicio-card servicio-dark reveal" style="transition-delay:0.05s">
+        <span class="servicio-tag">Servicio Destacado</span>
+        <h3>Gestión de redes sociales</h3>
+        <p>Estrategia de contenido completa, producción y edición de videos, diseño de posteos e historias. Todo pensado para tu negocio, adaptado a tu propio estilo.</p>
+        <a href="https://wa.me/5493584123836" class="btn" target="_blank" rel="noopener">Consultar</a>
+      </div>
+      <div class="servicio-card servicio-light reveal" style="transition-delay:0.16s">
+        <span class="servicio-tag">Tienda online</span>
+        <h3>Catálogo digital, página web o tienda on-line</h3>
+        <p>Organizo tu stock en digital, edito las fotos de tus productos y armo tu catálogo, o tienda on-line, o página web según el tipo de negocio que tengas.</p>
+        <a href="https://wa.me/5493584123836" class="btn" target="_blank" rel="noopener">Consultar</a>
+      </div>
+      <div class="servicio-card servicio-light reveal" style="transition-delay:0.27s">
+        <span class="servicio-tag">Todo en uno</span>
+        <h3>Marketing digital completo</h3>
+        <p>Gestiono todas tus redes, pienso la estrategia y armo el contenido, pero también le pongo orden a lo que hoy tenés desordenado: organizo tu stock y armo tu catálogo digital. Ganás el tiempo que hoy perdés tratando de manejar todo eso solo.</p>
+        <a href="https://wa.me/5493584123836" class="btn" target="_blank" rel="noopener">Consultar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="beneficios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Por qué trabajar conmigo</span>
+      <h2>Lo que ganás según el servicio que elijas.</h2>
+    </div>
+    <div class="beneficios-columns">
+      <div class="beneficio-col reveal" style="transition-delay:0.05s">
+        <h3>Gestión de redes sociales</h3>
+        <ul>
+          <li>Generás confianza mostrando lo que hacés de forma constante, no solo cuando te acordás de publicar.</li>
+          <li>Tu negocio se mantiene presente en la cabeza de la gente, incluso cuando todavía no está comprando nada.</li>
+          <li>Mostrás el valor real de tu trabajo, tu negocio o tu emprendimiento.</li>
+          <li>Conectás con gente que hoy no te conoce y que podría interesarse en tu marca.</li>
+          <li>Comunicás tus promociones y novedades de forma clara, y sumás publicidad paga cuando conviene acelerar el alcance.</li>
+          <li>Todo esto se traduce en más posicionamiento para tu marca y en consultas reales, no solo en likes.</li>
+        </ul>
+      </div>
+      <div class="beneficio-col reveal" style="transition-delay:0.15s">
+        <h3>Catálogo digital, página web o tienda on-line</h3>
+        <ul>
+          <li>Tu cliente te encuentra directo desde su casa, sin moverse, a la hora que le quede cómodo.</li>
+          <li>Te diferenciás de la competencia que todavía no ocupa ese espacio.</li>
+          <li>Tu negocio queda disponible las 24 horas, también de noche, el momento en que más gente navega tranquila desde su casa, sin apuro.</li>
+          <li>Aparecés en Google y llegás a gente nueva que hoy no te conoce, con espacio para crecer a futuro.</li>
+          <li>Tus precios, promociones y formas de pago quedan todos en un mismo lugar, así evitás responder siempre lo mismo sin que se concrete nada.</li>
+        </ul>
+      </div>
+      <div class="beneficio-col reveal" style="transition-delay:0.25s">
+        <h3>Marketing digital completo</h3>
+        <ul>
+          <li>Ganás tiempo de verdad, porque yo me encargo de pensar, planificar y organizar todo el proceso.</li>
+          <li>Tu stock y tus productos quedan ordenados.</li>
+          <li>Si vendés por WhatsApp o Instagram, vas a tener tu catálogo, tu stock y tus precios disponibles y súper organizados, todo desde el celular.</li>
+          <li>Llegás a gente que hoy no te conoce y que podría interesarse en lo que hacés.</li>
+          <li>De a poco tu marca empieza a ganar reconocimiento y posicionamiento, y cada vez más gente te conoce.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sobre-mi" id="sobre-mi">
+  <div class="container">
+    <div class="sobre-mi-visual reveal">
+      <div class="sobre-mi-photo">
+        <img src="sobre-mi-julieta.jpg" alt="Julieta Vega con su certificado de la Diplomatura en Marketing Digital de la UTN" loading="lazy">
+      </div>
+      <div class="sobre-mi-badge" aria-hidden="true">
+        <strong>+15</strong>
+        <span>años</span>
+      </div>
+    </div>
+    <div class="sobre-mi-copy reveal">
+      <span class="eyebrow">Sobre mí</span>
+      <h2>¡Hola! Soy Julieta Vega.</h2>
+      <p class="sobre-mi-subtitulo">Una apasionada por la innovación, el marketing y la comunicación digital.</p>
+      <p>Después de más de 15 años de experiencia profesional, encontré en el marketing digital un espacio donde pude combinar muchas cosas que siempre formaron parte de mi manera de trabajar: entender, analizar, aprender y buscar nuevas posibilidades.</p>
+      <p>Por eso decidí formarme y especializarme en marketing digital, publicidad, comunicación, creación de contenido e inteligencia artificial.</p>
+      <p>Hoy, desde JV Estudio Digital, trabajo para que los negocios puedan aprovechar las posibilidades que ofrece el mundo digital: darse a conocer y mostrar lo que ofrecen a través de las redes sociales, llegar a nuevos clientes con publicidad digital y contar con herramientas como páginas web, tiendas online y canales de comunicación que hagan más fácil encontrarlos, conocerlos y comprarles.</p>
+      <p>Redes sociales, publicidad en Meta Ads, páginas web, tiendas online, catálogos y canales de comunicación: todo forma parte de un mismo ecosistema digital que hoy influye directamente en cómo las personas encuentran un negocio, lo conocen y deciden comprarle.</p>
+      <p>Mi trabajo es entender qué necesita cada negocio y ayudarlo a construir una presencia digital que realmente lo represente.</p>
+      <p>Porque hoy no alcanza con tener un buen negocio. También es importante que las personas puedan conocerlo, encontrarlo y elegirlo.</p>
+    </div>
+  </div>
+</section>
+
+<section class="certificaciones">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Formación</span>
+      <h2>Lo que estudié y sigo trabajando para ser la mejor en Marketing Digital.</h2>
+    </div>
+    <div class="logros-row reveal">
+      <div class="logro-badge"><span class="dot"></span>Diplomatura en Marketing Digital · UTN</div>
+      <div class="logro-badge"><span class="dot"></span>Marketing Digital · Coderhouse</div>
+      <div class="logro-badge"><span class="dot"></span>E-commerce · Coderhouse</div>
+      <div class="logro-badge"><span class="dot"></span>Publicidad en Redes Avanzado · Coderhouse</div>
+      <div class="logro-badge"><span class="dot"></span>Formación en Publicidad · Academia de Traffickers de Elite</div>
+      <div class="logro-badge"><span class="dot"></span>Inglés avanzado · TOEFL iBT</div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonios" id="testimonios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Testimonios</span>
+      <h2>Lo que dicen quienes ya trabajaron conmigo.</h2>
+    </div>
+    <div class="testimonios-grid">
+      <div class="testimonio-card reveal">
+        <p>"Súper agradecida con el trabajo, nos entendiste en cada punto y lo volcaste con claridad en la tienda que armaste. Gracias por la paciencia y el acompañamiento con nuestro negocio."</p>
+        <div class="testimonio-autor">
+          <div class="autor-inicial">C</div>
+          <div class="autor-info">
+            <strong>Claudia</strong>
+            <span>Fundadora de su propio negocio</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal" style="transition-delay:0.1s">
+        <p>"Qué genia Juli, qué rápido tu trabajo y te quedó hermoso el video que publicaste en nuestro Instagram."</p>
+        <div class="testimonio-autor">
+          <div class="autor-inicial">M</div>
+          <div class="autor-info">
+            <strong>Marian</strong>
+            <span>Fundadora de su marca personal</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal" style="transition-delay:0.2s">
+        <p>"Qué bueno todo lo que hacés, cómo le encontrás solución a todo. Qué crack."</p>
+        <div class="testimonio-autor">
+          <div class="autor-inicial">F</div>
+          <div class="autor-info">
+            <strong>Flor</strong>
+            <span>Fundadora de su marca personal</span>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio-card reveal" style="transition-delay:0.3s">
+        <p>"¡Qué genia, Juli! El catálogo digital es justo lo que necesitaba nuestro negocio, agotamos stock un domingo. Una clienta nuestra me dijo: 'es re fácil comprarles ahora, porque me fijo el precio y lo que tienen disponible, y les escribo con lo que quiero.'"</p>
+        <div class="testimonio-autor">
+          <div class="autor-inicial">M</div>
+          <div class="autor-info">
+            <strong>Marian</strong>
+            <span>Fundadora de su marca personal</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="container">
+    <div class="contacto-copy reveal">
+      <span class="eyebrow" style="color:var(--tertiary);">Contacto</span>
+      <h2>Contame de tu negocio y vemos por dónde empezar.</h2>
+      <p>Escribime por WhatsApp y contame qué hace tu negocio y qué te gustaría lograr. De ahí armamos una propuesta a tu medida.</p>
+      <div class="contacto-steps">
+        <div class="step-item">
+          <span class="step-num">01</span>
+          <p>Me contás lo que puedas sobre tu negocio o emprendimiento, y en qué punto se encuentra tu marketing en redes sociales.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">02</span>
+          <p>Vemos juntos qué necesita tu negocio hoy, sin dar vueltas.</p>
+        </div>
+        <div class="step-item">
+          <span class="step-num">03</span>
+          <p>Te propongo un plan pensado para lo que tu negocio puede invertir.</p>
+        </div>
+      </div>
+      <a href="https://wa.me/5493584123836" class="btn btn-primary" target="_blank" rel="noopener">Escribime por WhatsApp</a>
+      <p class="contacto-note">No hay un precio fijo para todos: los valores se piensan según lo que tu negocio puede invertir hoy, así vengas con todo armado o sin ninguna presencia en redes sociales todavía. Consultar no te compromete a nada y nunca está de más.</p>
+      <div class="contacto-links">
+        <a href="https://instagram.com/jvestudiodigital" class="contacto-social" target="_blank" rel="noopener">Instagram · @jvestudiodigital</a>
+        <a href="https://www.tiktok.com/@d.julietavega" class="contacto-social" target="_blank" rel="noopener">TikTok · @d.julietavega</a>
+      </div>
+    </div>
+    <div class="contacto-visual reveal">
+      <div class="contacto-photo">
+        <img src="contacto-julieta.jpg" alt="Julieta Vega trabajando en su notebook" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="mensajitos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Comunidad</span>
+      <h2>Lo que me comentan en redes.</h2>
+    </div>
+    <div class="mensajitos-grid">
+      <div class="mensajito reveal" style="--rot:-3deg;">
+        <p>"Datazo, es verdad lo que decís."</p>
+        <span>Sharaburen</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:2deg; transition-delay:0.06s;">
+        <p>"Quiero hacer contenido y estos consejos me re sirven."</p>
+        <span>Laurita</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:-1.5deg; transition-delay:0.12s;">
+        <p>"Excelente info, para tener en cuenta. Gracias."</p>
+        <span>Naimabue</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:2.5deg; transition-delay:0.18s;">
+        <p>"Muchas gracias, muy útil. A veces nos enfocamos en lo macro y nos olvidamos de lo diario."</p>
+        <span>Bagués con Mirta</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:-2deg; transition-delay:0.24s;">
+        <p>"Me caés re bien, Julieta."</p>
+        <span>Carolina Clemente, Psicóloga</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:1.5deg; transition-delay:0.3s;">
+        <p>"Me encantó, Juli. Me va a re servir, gracias genia."</p>
+        <span>Ángela, bienestar y piel real</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:-2.5deg; transition-delay:0.36s;">
+        <p>"Graciassss, lo voy a implementar."</p>
+        <span>CamiOnline</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:1.8deg; transition-delay:0.42s;">
+        <p>"Muchas gracias, me parece súper práctico."</p>
+        <span>Dai</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:-1.2deg; transition-delay:0.48s;">
+        <p>"Excelente, muchas gracias."</p>
+        <span>Bruja del Umbral</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:2.2deg; transition-delay:0.54s;">
+        <p>"Me encantó."</p>
+        <span>Lunaria Moldes</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:-2deg; transition-delay:0.6s;">
+        <p>"Jaja me siento identificada, esos dos tipos de contenido no me animo a hacerlos, así que mejor me enfoco en mi nicho."</p>
+        <span>Sole Rojas</span>
+      </div>
+      <div class="mensajito reveal" style="--rot:1.3deg; transition-delay:0.66s;">
+        <p>"Hermoso mensaje, me encantó."</p>
+        <span>Inés Lalanda</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <img src="logo-jved-claro.png" alt="Logo de JV Estudio Digital">
+  <p>JV Estudio Digital · Chacabuco, Buenos Aires</p>
+</footer>
+
+<script>
+document.documentElement.classList.add('js-ready');
+
+/* Header glass al hacer scroll */
+const header = document.getElementById('site-header');
+window.addEventListener('scroll', () => {
+  if(window.scrollY > 40){ header.classList.add('scrolled'); }
+  else{ header.classList.remove('scrolled'); }
+});
+
+/* Menú mobile */
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+menuBtn.addEventListener('click', () => {
+  const isOpen = mobileMenu.classList.toggle('open');
+  menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+});
+mobileMenu.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  });
+});
+
+/* Revelado en scroll */
+const revealEls = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting){
+      entry.target.classList.add('in-view');
+      io.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12, rootMargin:'0px 0px -50px 0px'});
+revealEls.forEach(el => io.observe(el));
+
+/* Cursor personalizado, solo en dispositivos con puntero fino */
+const prefersFine = window.matchMedia('(pointer: fine)').matches;
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+if(prefersFine && !prefersReducedMotion){
+  const dot = document.querySelector('.cursor-dot');
+  const ring = document.querySelector('.cursor-ring');
+  let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+  window.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX; mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function lerpRing(){
+    ringX += (mouseX - ringX) * 0.11;
+    ringY += (mouseY - ringY) * 0.11;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(lerpRing);
+  }
+  lerpRing();
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => ring.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => ring.classList.remove('hovering'));
+  });
+}
+</script>
+
+</body>
+</html>
